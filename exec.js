@@ -16,7 +16,7 @@ router.post('/ping', (req,res) => {
 
 router.post('/gzip', (req,res) => {
     exec(
-        'gzip ' + req.query.file_path,
+        `gzip ${encodeURIComponent(req.query.file_path)}`,
         function (err, data) {
           console.log('err: ', err)
           console.log('data: ', data);
